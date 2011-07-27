@@ -1,7 +1,7 @@
 /*	Filename: roleplay.cpp
  *	Devs: Micah Butler (princessjinifer)
  *	Created: 5/10/2010
- *	A text based roleplaying game that I wrote on a boring car trip home from Grandma's house ^_^
+ *	A text based roleplaying game that I began writing on a boring car trip home from Grandma's house ^_^
  *	v.0 (first build)
 */
 #define MAIN
@@ -13,6 +13,7 @@ string are_you_sure;
 string what_to_do; // when the user is asked what they want to do, this is used for their input.
 int area_number; // this tells the plan_of_action which area you are in
 int gold_amount = 0; // for handling how much gold the player has :)
+int visited_the_help;
 
 int main () // introduction and name picking
 {

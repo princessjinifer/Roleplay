@@ -1,7 +1,7 @@
 /*	Filename: roleplay.h
  *	Devs: Micah Butler (princessjinifer)
  *	Created: 5/10/2010
- *	A text based roleplaying game that I wrote on a boring car trip home from Grandma's house ^_^
+ *	A text based roleplaying game that I began writing on a boring car trip home from Grandma's house ^_^
  *	v.0 (first build)
 */
 
@@ -17,6 +17,7 @@ extern string are_you_sure;
 extern string what_to_do; // when the user is asked what they want to do, this is used for their input.
 extern int area_number; // this tells the plan_of_action which area you are in
 extern int gold_amount; // for handling how much gold the player has :)
+extern int visited_the_help;
 
 void game_beginning (); // where the game actually begins
 void game_beginning_part2 (); // after the 'plan_of_action' function

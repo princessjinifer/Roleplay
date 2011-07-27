@@ -1,7 +1,7 @@
 /*	Filename: shops.cpp
  *	Devs: Micah Butler (princessjinifer)
  *	Created: 5/10/2010
- *	A text based roleplaying game that I wrote on a boring car trip home from Grandma's house ^_^
+ *	A text based roleplaying game that I began writing on a boring car trip home from Grandma's house ^_^
  *	v.0 (first build)
 */
 
@@ -9,7 +9,6 @@
 #include "roleplay.h"
 
 int hotel_number;
-int visited_the_help;
 int finished1;
 int talked_to_him;
 
@@ -213,7 +212,7 @@ void hotel_help ()
 	}
 	else
 	{
-		cout << "hotel non-exsistent";
+		cout << "hotel non-exsistent\n";
 		the_hotel ();
 	}
 	hotelOne:

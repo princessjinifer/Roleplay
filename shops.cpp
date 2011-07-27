@@ -1,15 +1,25 @@
 /*	Filename: shops.cpp
  *	Devs: Micah Butler (princessjinifer)
  *	Created: 5/10/2010
- *	A text based roleplaying game that I wrote on a boring car trip home from Grandma's house ^_^
+ *	A text based roleplaying game that I began writing on a boring car trip home from Grandma's house ^_^
  *	v.0 (first build)
 */
 
 #include <iostream>
 #include "roleplay.h"
 
+int shop_number;
+string talking_to_phil;
+
+void shop_help ();
+
 void the_shop ()
 {
+	if (visited_the_help == 1)
+	{
+		visited_the_help=0;
+		goto beentothehelp;
+	}
 	cout << "You see a cheerful man inside, he greets you warmly\n";
 	cout << "\"Hello there, welcome to Sam's General Store.\n";
 	cout << "My name is Phil, my dad is Sam just in case you were\n";
@@ -19,6 +29,7 @@ void the_shop ()
 	cout << "talk to phil\n";
 	cout << "look in the shop\n";
 	cout << "leave the shop\n";
+	beentothehelp:
 	cout << ": ";
 	getline (cin, what_to_do);
 	if (what_to_do == "talk to phil")
@@ -33,6 +44,12 @@ void the_shop ()
 	{
 		leave_the_building ();
 	}
+	if (what_to_do == "help")
+	{
+		shop_number=1;
+		system("clear");
+		shop_help ();
+	}
 	else
 	{
 		cout << "I don't recognize that, please enter one of the commands above\n";
@@ -43,8 +60,11 @@ void the_shop ()
 
 void talk_to_phil ()
 {
+	if (visited_the_help == 1)
+	{
+		goto beentothehelp;
+	}
 	system("clear");
-	string talking_to_phil;
 	the_conversation:
 	cout << "What would you like to say? \n\n";
 	cout << "where am i at?\n";
@@ -52,6 +72,7 @@ void talk_to_phil ()
 	cout << "where is everybody else at?\n";
 	cout << "tell me about yourself\n";
 	cout << "that is all for now\n";
+	beentothehelp:
 	cout << ": ";
 	getline (cin, talking_to_phil);
 	if (talking_to_phil == "where am i at?")
@@ -73,6 +94,12 @@ void talk_to_phil ()
 	if (talking_to_phil == "that is all for now")
 	{
 		the_shop_2 ();
+	}
+	if (talking_to_phil == "help")
+	{
+		shop_number=101;
+		system("clear");
+		shop_help ();
 	}
 	else
 	{
@@ -170,3 +197,35 @@ void the_shop_2 ()
 		goto the_shop_2_retry;
 	}
 }
+
+void shop_help ()
+{
+	visited_the_help=0;
+	visited_the_help++;
+	if (shop_number == 1)
+	{
+		goto shopOne;
+	}
+	if (shop_number == 101)
+	{
+		goto shopOneOwner;
+	}
+	else
+	{
+		cout << "shop non-exsistent\n";
+	}
+	shopOne:
+	cout << "Available commands:\n";
+	cout << "talk to phil\n";
+	cout << "look in the shop\n";
+	cout << "leave the shop\n";
+	the_shop ();
+	shopOneOwner:
+	cout << "Available commands:\n";
+	cout << "where am i at?\n";
+	cout << "where is your father?\n";
+	cout << "where is everybody else at?\n";
+	cout << "tell me about yourself\n";
+	cout << "that is all for now\n";
+	talk_to_phil ();
+	}
